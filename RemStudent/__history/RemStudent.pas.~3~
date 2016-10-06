@@ -1,0 +1,100 @@
+unit RemStudent;
+
+interface
+
+uses
+  Main, DMod, Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TRemStudentForm = class(TForm)
+    Label1: TLabel;
+    RadioButton1: TRadioButton;
+    RadioButton2: TRadioButton;
+    Memo1: TMemo;
+    Label2: TLabel;
+    Button1: TButton;
+    Button2: TButton;
+    procedure Button2Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  RemStudentForm: TRemStudentForm;
+
+implementation
+
+{$R *.dfm}
+
+procedure TRemStudentForm.Button1Click(Sender: TObject);
+begin
+var
+  iName: integer;
+  cName: char;
+  sSName: string;
+  sFName: string;
+begin
+  sSName:= MainForm.cbStudName.Items.Strings[MainForm.cbStudName.ItemIndex];
+  sFName:= MainForm.cbStudName.Items.Strings[MainForm.cbStudName.ItemIndex];
+  iName := 0;
+  cName := ' ';
+// If user has not selected anything
+  if not MainForm.cbStudName.ItemIndex= -1 then
+    begin
+  // Create string with only surname from combo box contents
+    while cName <> ',' do
+    begin
+      iName:= iName + 1;
+      cName:= sSName[iName];
+    end;
+    iName:= iName-1;
+    sSName:= Copy(sSName,1,iName);
+    iName:= iName+4;
+    sFName:= Copy(sFName,iName,Length(MainForm.cbStudName.Items.Strings[MainForm.cbStudName.ItemIndex]));
+
+  if (DataMod.dbConn.Connected) then
+  begin
+    DataMod.qryRemStudent.Close();
+
+    //Use parameters in SQL to login
+
+    DataMod.qryRemStudent.Parameters.ParamByName('pmSName').Value := sSName;
+    DataMod.qryRemStudent.Parameters.ParamByName('pmFName').Value:= sFName;
+    DataMod.qryRemStudent.Open();
+
+    if (DataMod.qryRemStudent.Active) then
+    begin
+      if (DataMod.qryRemStudent.RecordCount = 1) then
+      begin
+        if RemStudentForm.RadioButton1.Checked = true then
+        end
+        else
+        if RemStudentForm.RadioButton2.Checked = true then
+
+
+      end
+      else
+        ShowMessage('Invalid entry. Please make sure this is correct or contact an administrator.');
+        DataMod.qryRemStudent.Close();
+    end
+    else
+      ShowMessage('There was an error with our database. Please try again or contact an administrator.');
+  end
+  else
+    ShowMessage('No database connection found. Please try again or contact an administrator.');
+  end
+  else
+    ShowMessage('A student needs to be selected to continue.');
+end;
+end;
+
+procedure TRemStudentForm.Button2Click(Sender: TObject);
+begin
+  RemStudentForm.Close;
+end;
+
+end.
