@@ -1,0 +1,62 @@
+unit DMod;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DB, Data.Win.ADODB;
+
+type
+  TDataMod = class(TDataModule)
+    dbConn: TADOConnection;
+    qryTeacherNames: TADOQuery;
+    qryLogon: TADOQuery;
+    qryStudentNames: TADOQuery;
+    qryAssessmentNames: TADOQuery;
+    qryEdStudent: TADOQuery;
+    qryEdAssess: TADOQuery;
+    qryInsStudent: TADOQuery;
+    qryUpdStudent: TADOQuery;
+    procedure DataModuleCreate(Sender: TObject);
+    procedure DataModuleDestroy(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataMod: TDataMod;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+//-----------------------------------------------------------------------------
+
+procedure TDataMod.DataModuleCreate(Sender: TObject);
+begin
+  //
+  if dbConn.Connected then
+    dbConn.Connected      := false;
+
+  dbConn.ConnectionString := 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=' +
+                             ExtractFilePath( ParamStr(0) )                  +
+                             'AssessmentDB.mdb;Persist Security Info=False';
+  dbConn.Connected        := true;
+end;
+
+//-----------------------------------------------------------------------------
+
+procedure TDataMod.DataModuleDestroy(Sender: TObject);
+begin
+  //
+  if dbConn.Connected then
+    dbConn.Connected      := false;
+end;
+
+
+//-----------------------------------------------------------------------------
+
+end.
