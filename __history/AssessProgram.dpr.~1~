@@ -1,0 +1,16 @@
+program AssessProgram;
+
+uses
+  Vcl.Forms,
+  Main in 'Main\Main.pas' {MainForm},
+  DMod in 'DMod\DMod.pas' {DataMod: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TMainForm, MainForm);
+  Application.CreateForm(TDataMod, DataMod);
+  Application.Run;
+end.
