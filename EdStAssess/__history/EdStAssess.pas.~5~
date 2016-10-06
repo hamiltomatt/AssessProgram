@@ -1,0 +1,40 @@
+unit EdStAssess;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TEdStAssessForm = class(TForm)
+    Label1: TLabel;
+    cbStName: TComboBox;
+    Label2: TLabel;
+    edRawMark: TEdit;
+    Button1: TButton;
+    Button2: TButton;
+    ComboBox1: TComboBox;
+    Label3: TLabel;
+    Edit1: TEdit;
+    Label4: TLabel;
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  EdStAssessForm: TEdStAssessForm;
+
+implementation
+
+{$R *.dfm}
+
+procedure TEdStAssessForm.Button2Click(Sender: TObject);
+begin
+  EdStAssessForm.Destroy;
+end;
+
+end.

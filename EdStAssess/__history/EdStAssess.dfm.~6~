@@ -1,0 +1,94 @@
+object EdStAssessForm: TEdStAssessForm
+  Left = 633
+  Top = 450
+  Caption = 'Edit Student Assessment'
+  ClientHeight = 179
+  ClientWidth = 322
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesigned
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 40
+    Top = 24
+    Width = 72
+    Height = 13
+    Caption = 'Student Name:'
+  end
+  object Label2: TLabel
+    Left = 61
+    Top = 78
+    Width = 51
+    Height = 13
+    Caption = 'Raw Mark:'
+  end
+  object Label3: TLabel
+    Left = 21
+    Top = 51
+    Width = 91
+    Height = 13
+    Caption = 'Assessment Name:'
+  end
+  object Label4: TLabel
+    Left = 79
+    Top = 105
+    Width = 33
+    Height = 13
+    Caption = 'Grade:'
+  end
+  object edRawMark: TEdit
+    Left = 128
+    Top = 75
+    Width = 65
+    Height = 21
+    TabOrder = 0
+  end
+  object Button1: TButton
+    Left = 128
+    Top = 137
+    Width = 75
+    Height = 25
+    Caption = 'OK'
+    TabOrder = 1
+  end
+  object Button2: TButton
+    Left = 209
+    Top = 137
+    Width = 75
+    Height = 25
+    Caption = 'Cancel'
+    TabOrder = 2
+    OnClick = Button2Click
+  end
+  object Edit1: TEdit
+    Left = 128
+    Top = 102
+    Width = 65
+    Height = 21
+    TabOrder = 3
+  end
+  object cbStName: TComboBoxEx
+    Left = 128
+    Top = 20
+    Width = 145
+    Height = 22
+    ItemsEx = <
+      item
+      end>
+    TabOrder = 4
+  end
+  object cbAssName: TComboBoxEx
+    Left = 128
+    Top = 48
+    Width = 145
+    Height = 22
+    ItemsEx = <>
+    TabOrder = 5
+  end
+end

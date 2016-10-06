@@ -1,0 +1,61 @@
+object EdStAssessForm: TEdStAssessForm
+  Left = 633
+  Top = 450
+  Caption = 'Edit Student Assessment'
+  ClientHeight = 127
+  ClientWidth = 341
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesigned
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 40
+    Top = 24
+    Width = 72
+    Height = 13
+    Caption = 'Student Name:'
+  end
+  object Label2: TLabel
+    Left = 61
+    Top = 56
+    Width = 51
+    Height = 13
+    Caption = 'Raw Mark:'
+  end
+  object cbStName: TComboBox
+    Left = 128
+    Top = 21
+    Width = 145
+    Height = 21
+    TabOrder = 0
+  end
+  object edRawMark: TEdit
+    Left = 128
+    Top = 53
+    Width = 65
+    Height = 21
+    TabOrder = 1
+  end
+  object Button1: TButton
+    Left = 128
+    Top = 80
+    Width = 75
+    Height = 25
+    Caption = 'Add'
+    TabOrder = 2
+  end
+  object Button2: TButton
+    Left = 209
+    Top = 80
+    Width = 75
+    Height = 25
+    Caption = 'Cancel'
+    TabOrder = 3
+  end
+end
